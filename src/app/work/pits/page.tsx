@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Context } from "@/components/case-study/pits/Context";
 import { ExistingSite } from "@/components/case-study/pits/ExistingSite";
 import { Hero } from "@/components/case-study/pits/Hero";
+import { LowFidPlanning } from "@/components/case-study/pits/LowFidPlanning";
 import { Overview } from "@/components/case-study/pits/Overview";
+import { Process } from "@/components/case-study/pits/Process";
 
 export const metadata: Metadata = {
   title: "Princeton IT Services | Pari Gill — Product Designer",
@@ -17,6 +19,8 @@ export default function PITSPage() {
       <Overview />
       <Context />
       <ExistingSite />
+      <LowFidPlanning />
+      <Process />
     </main>
   );
 }
