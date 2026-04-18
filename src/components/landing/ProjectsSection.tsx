@@ -51,19 +51,24 @@ const PROJECTS: ProjectCardData[] = [
   },
   {
     slug: "nscc",
-    title: "The Children's Cancer Foundation",
+    title: "NSCC \u2014 Hack4Impact",
     description:
-      "Complete redesign of grant application portal, allowing quick and convenient distribution of $1M+ in cancer research grants annually.",
+      "Leading design quality for a school climate assessment platform serving 3,000+ schools. Overhauling 50+ screens, mentoring junior designers, and restructuring dashboards with AI-assisted visualizations.",
     badge: "Work In Progress",
     tags: [],
     image: "/images/landing/image-104.png",
-    imageAlt: "Children's Cancer Foundation grant portal mockup",
+    imageAlt: "NSCC Hack4Impact school climate platform mockup",
     locked: true,
   },
 ];
 
-export function ProjectsSection() {
+type Props = {
+  headingLevel?: "h1" | "h2";
+};
+
+export function ProjectsSection({ headingLevel = "h2" }: Props = {}) {
   const rootRef = useRef<HTMLElement>(null);
+  const Heading = headingLevel;
 
   useGSAP(
     () => {
@@ -95,9 +100,9 @@ export function ProjectsSection() {
       className="relative bg-espresso-dark py-16 md:py-24 lg:py-28"
     >
       <div className="mx-auto w-full max-w-[1680px] px-4 md:px-8 lg:px-14 xl:px-20">
-        <h2 className="mb-12 text-center font-sans text-4xl uppercase tracking-[0.02em] text-cream md:mb-16 md:text-[56px] lg:mb-20 lg:text-[80px] xl:text-[96px]">
+        <Heading className="mb-12 text-center font-sans text-4xl uppercase tracking-[0.02em] text-cream md:mb-16 md:text-[56px] lg:mb-20 lg:text-[80px] xl:text-[96px]">
           Projects
-        </h2>
+        </Heading>
 
         <ul className="flex flex-col gap-10 md:gap-14 lg:gap-20 xl:gap-[96px]">
           {PROJECTS.map((p) => (
