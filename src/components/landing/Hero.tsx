@@ -36,7 +36,7 @@ export function Hero() {
       aria-label="Pari Gill — intro"
       className="relative isolate bg-cream"
     >
-      <div className="relative mx-auto w-full max-w-[1514px] px-5 pt-28 pb-16 md:pt-32 md:pb-24 xl:aspect-[1514/918] xl:px-0 xl:pb-0 xl:pt-0">
+      <div className="relative mx-auto w-full max-w-[1514px] px-5 pt-8 pb-16 md:pt-6 md:pb-24 xl:aspect-[1514/786] xl:px-0 xl:pb-0 xl:pt-0">
         {/* Decorative SVG vectors — desktop only */}
         <div
           aria-hidden="true"
@@ -48,7 +48,7 @@ export function Hero() {
             width={281}
             height={238}
             className="absolute h-auto"
-            style={{ top: "40.63%", left: "3.83%", width: "18.56%" }}
+            style={{ top: "30.66%", left: "3.83%", width: "18.56%" }}
           />
           <Image
             src="/images/landing/hero-vector-5.svg"
@@ -56,7 +56,7 @@ export function Hero() {
             width={347}
             height={439}
             className="absolute h-auto"
-            style={{ top: "20.81%", left: "22.46%", width: "22.92%" }}
+            style={{ top: "7.51%", left: "22.46%", width: "22.92%" }}
           />
           <Image
             src="/images/landing/hero-vector-6.svg"
@@ -64,7 +64,7 @@ export function Hero() {
             width={406}
             height={247}
             className="absolute h-auto"
-            style={{ top: "58.93%", left: "14.73%", width: "26.82%" }}
+            style={{ top: "52.04%", left: "14.73%", width: "26.82%" }}
           />
           <Image
             src="/images/landing/hero-vector-8.svg"
@@ -72,7 +72,7 @@ export function Hero() {
             width={54}
             height={213}
             className="absolute h-auto"
-            style={{ top: "43.35%", left: "86.95%", width: "3.53%" }}
+            style={{ top: "33.84%", left: "86.95%", width: "3.53%" }}
           />
         </div>
 
@@ -110,18 +110,89 @@ export function Hero() {
           </p>
         </div>
 
-        {/* "contact me" CTA */}
+        {/* "contact me" CTA — intentionally smushed pill per Figma design */}
         <Link
           href="/contact"
           data-hero-reveal
-          className="group relative z-10 mx-auto mt-10 flex w-max items-center gap-3 rounded-full bg-orange-bright px-7 py-3 font-serif text-cream transition-transform duration-300 hover:-translate-y-0.5 md:mt-12 md:text-[22.9px] md:px-8 md:py-3.5 xl:absolute xl:mx-0 xl:mt-0 xl:left-[83.82%] xl:top-[86.10%]"
+          aria-label="Contact Pari"
+          className="group relative z-10 mx-auto mt-10 block rounded-full bg-orange-bright transition-transform duration-300 hover:-translate-y-0.5 md:mt-12 xl:absolute xl:mx-0 xl:mt-0 xl:left-[83.82%] xl:top-[86.10%]"
+          style={{
+            // Figma: 148×65.4 at 1514-wide frame → 9.77% × ~7.12%
+            // Tight pill; text will wrap to two lines.
+            width: "148px",
+            height: "65.4px",
+          }}
         >
-          <span>contact me</span>
+          <span
+            className="absolute font-serif text-cream"
+            style={{
+              left: "18.25%", // 27/148
+              top: "16.8%", // 11/65.4
+              width: "44.95%", // 66.54/148
+              fontSize: "22.9px",
+              lineHeight: "0.82",
+            }}
+          >
+            contact me
+          </span>
+
+          {/* Hand-drawn arrow, 3 SVG fragments (shaft + two tip lines) */}
           <span
             aria-hidden="true"
-            className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+            className="pointer-events-none absolute transition-transform duration-300 group-hover:translate-x-0.5"
+            style={{
+              // Shaft (cta-arrow-1): 62×3 at (1335.54-1269, 827.32-790.6) = (66.54, 36.72)
+              left: `${(66.54 / 148) * 100}%`,
+              top: `${(36.72 / 65.4) * 100}%`,
+              width: `${(62 / 148) * 100}%`,
+              height: `${(3 / 65.4) * 100}%`,
+            }}
           >
-            →
+            <Image
+              src="/images/landing/cta-arrow-1.svg"
+              alt=""
+              width={64}
+              height={3}
+              className="h-full w-full"
+            />
+          </span>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute"
+            style={{
+              // Arrow tip upper (cta-arrow-3, 18×17): at (1382.58-1269, 815.84-790.6) = (113.58, 25.24)
+              left: `${(113.58 / 148) * 100}%`,
+              top: `${(25.24 / 65.4) * 100}%`,
+              width: `${(18 / 148) * 100}%`,
+              height: `${(17 / 65.4) * 100}%`,
+            }}
+          >
+            <Image
+              src="/images/landing/cta-arrow-3.svg"
+              alt=""
+              width={18}
+              height={17}
+              className="h-full w-full"
+            />
+          </span>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute"
+            style={{
+              // Arrow tip lower (cta-arrow-2, 21×13): at (1379.14-1269, 826.17-790.6) = (110.14, 35.57)
+              left: `${(110.14 / 148) * 100}%`,
+              top: `${(35.57 / 65.4) * 100}%`,
+              width: `${(21 / 148) * 100}%`,
+              height: `${(13 / 65.4) * 100}%`,
+            }}
+          >
+            <Image
+              src="/images/landing/cta-arrow-2.svg"
+              alt=""
+              width={21}
+              height={13}
+              className="h-full w-full"
+            />
           </span>
         </Link>
       </div>

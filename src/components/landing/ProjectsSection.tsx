@@ -94,12 +94,12 @@ export function ProjectsSection() {
       aria-label="Selected projects"
       className="relative bg-espresso-dark py-16 md:py-24 lg:py-28"
     >
-      <div className="mx-auto w-full max-w-[1514px] px-5 md:px-10 lg:px-[185px]">
-        <h2 className="mb-12 text-center font-sans text-4xl uppercase tracking-[0.02em] text-cream md:mb-16 md:text-[56px] lg:mb-20 lg:text-[70.64px]">
+      <div className="mx-auto w-full max-w-[1680px] px-4 md:px-8 lg:px-14 xl:px-20">
+        <h2 className="mb-12 text-center font-sans text-4xl uppercase tracking-[0.02em] text-cream md:mb-16 md:text-[56px] lg:mb-20 lg:text-[80px] xl:text-[96px]">
           Projects
         </h2>
 
-        <ul className="flex flex-col gap-10 md:gap-14 lg:gap-[85px]">
+        <ul className="flex flex-col gap-10 md:gap-14 lg:gap-20 xl:gap-[96px]">
           {PROJECTS.map((p) => (
             <li key={p.slug} data-project-card>
               <ProjectCard data={p} />

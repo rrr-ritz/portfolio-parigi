@@ -7,7 +7,7 @@ const CONTACTS = [
 
 const SECONDARY_LINKS = [
   { label: "Work", href: "/work" },
-  { label: "Resume", href: "/resume.pdf" },
+  { label: "Resume", href: "/Pari_Gill_Resume.pdf" },
   { label: "Miscellany", href: "/miscellany" },
   { label: "Contact", href: "/contact" },
 ];

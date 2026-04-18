@@ -1,29 +1,33 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
-type NavLink = { label: string; href: string };
+type NavLink = { label: string; href: string; external?: boolean };
 
 const LINKS: NavLink[] = [
   { label: "Work", href: "/work" },
-  { label: "Resume", href: "/resume.pdf" },
+  { label: "Resume", href: "/Pari_Gill_Resume.pdf", external: true },
   { label: "Miscellany", href: "/miscellany" },
 ];
 
+// Ellipse (Figma Ellipse 14) sits over the banner wordmark at Figma coords
+// x=186,y=54,w=127,h=34 — relative to the banner at (18,22,1476×69):
+//   left = (186-18)/1476 = 11.38%
+//   top  = (54-22)/69    = 46.38%  (top-of-box)
+//   w    = 127/1476      =  8.60%
+//   h    = 34/69         = 49.28%
+const ELLIPSE_LEFT = "11.38%";
+const ELLIPSE_TOP = "46.38%";
+const ELLIPSE_WIDTH = "8.60%";
+const ELLIPSE_HEIGHT = "49.28%";
+
 export function Navigation() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     setOpen(false);
@@ -46,54 +50,23 @@ export function Navigation() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-[background-color,backdrop-filter,box-shadow] duration-300",
-        scrolled
-          ? "bg-cream/80 backdrop-blur-md shadow-[0_1px_0_rgba(56,38,23,0.06)]"
-          : "bg-transparent",
-      )}
-    >
+    <header className="relative z-40 bg-cream" aria-label="Site header">
+      {/* ───────── Mobile (< md) ───────── */}
       <nav
         aria-label="Primary"
-        className="mx-auto flex max-w-[1514px] items-center justify-between px-5 py-4 md:px-[calc(18/1514*100%)] md:py-6"
+        className="mx-auto flex max-w-[1514px] items-center justify-between px-5 py-4 md:hidden"
       >
         <Link
           href="/"
           aria-label="Pari Gill — home"
-          className="group relative inline-flex items-center"
+          className="relative inline-block font-display text-[32px] uppercase leading-none tracking-[-0.02em] text-espresso"
         >
-          <span className="relative inline-block font-display text-[32px] uppercase leading-none tracking-[-0.02em] text-espresso md:text-[44px]">
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute left-[0.28em] top-1/2 -z-0 h-[0.7em] w-[0.85em] -translate-y-1/2 rounded-full bg-orange-bright md:bg-orange"
-            />
-            <span className="relative z-10">Pari Gill</span>
-          </span>
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute left-[0.28em] top-1/2 -z-0 h-[0.7em] w-[0.85em] -translate-y-1/2 rounded-full bg-orange-bright"
+          />
+          <span className="relative z-10">Pari Gill</span>
         </Link>
-
-        <ul className="hidden items-center gap-10 md:flex">
-          {LINKS.map((l) => (
-            <li key={l.href}>
-              <Link
-                href={l.href}
-                className="group relative inline-block py-1 font-display text-[15px] uppercase tracking-[0.12em] text-orange-bright"
-                aria-current={isActive(l.href) ? "page" : undefined}
-              >
-                <span>{l.label}</span>
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "pointer-events-none absolute inset-x-0 -bottom-0.5 h-[2px] origin-left bg-orange-bright transition-transform duration-300",
-                    isActive(l.href)
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100",
-                  )}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
 
         <button
           type="button"
@@ -101,7 +74,7 @@ export function Navigation() {
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
-          className="relative inline-flex h-11 w-11 items-center justify-center md:hidden"
+          className="relative inline-flex h-11 w-11 items-center justify-center"
         >
           <span className="sr-only">Menu</span>
           <span
@@ -128,6 +101,69 @@ export function Navigation() {
         </button>
       </nav>
 
+      {/* ───────── Desktop (md+) ───────── */}
+      <div className="mx-auto hidden max-w-[1514px] px-[18px] md:block md:pt-[22px]">
+        {/* Row 1: full-width wordmark banner with orange ellipse accent */}
+        <Link
+          href="/"
+          aria-label="Pari Gill — home"
+          className="relative block w-full"
+        >
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute top-1/2 -translate-y-1/2 rounded-full bg-orange"
+            style={{
+              left: ELLIPSE_LEFT,
+              width: ELLIPSE_WIDTH,
+              height: ELLIPSE_HEIGHT,
+              // Use the "top" value instead of 50% if we want to match Figma
+              // more strictly — the Figma ellipse center ≈ 49px from top of
+              // a 69px banner, which is 71% from top (not 50%). Re-anchor:
+              top: `calc(${ELLIPSE_TOP} + ${ELLIPSE_HEIGHT} / 2)`,
+            }}
+          />
+          <Image
+            src="/images/landing/logo-pari-gill.svg"
+            alt="Pari Gill"
+            width={1477}
+            height={70}
+            priority
+            className="relative z-10 block h-auto w-full"
+          />
+        </Link>
+
+        {/* Row 2: primary nav links, right-aligned */}
+        <nav
+          aria-label="Primary"
+          className="flex justify-end pb-6 pt-[calc(10/1514*100%)]"
+        >
+          <ul className="flex items-center gap-10">
+            {LINKS.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="group relative inline-block py-1 font-display text-[16px] uppercase tracking-[0.12em] text-orange-bright lg:text-[18px] xl:text-[21px]"
+                  aria-current={isActive(l.href) ? "page" : undefined}
+                  {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                >
+                  <span>{l.label}</span>
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "pointer-events-none absolute inset-x-0 -bottom-0.5 h-[2px] origin-left bg-orange-bright transition-transform duration-300",
+                      isActive(l.href)
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100",
+                    )}
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      {/* ───────── Mobile menu overlay ───────── */}
       <div
         id="mobile-nav"
         className={cn(
@@ -154,9 +190,7 @@ export function Navigation() {
               key={l.href}
               className={cn(
                 "transition-[opacity,transform] duration-500",
-                open
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-2 opacity-0",
+                open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0",
               )}
               style={{ transitionDelay: open ? `${i * 60 + 80}ms` : "0ms" }}
             >
@@ -164,6 +198,7 @@ export function Navigation() {
                 href={l.href}
                 className="font-display text-3xl uppercase tracking-[0.12em] text-orange-bright"
                 aria-current={isActive(l.href) ? "page" : undefined}
+                {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
                 {l.label}
               </Link>
