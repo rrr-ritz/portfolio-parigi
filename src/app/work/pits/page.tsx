@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Context } from "@/components/case-study/pits/Context";
+import { ExistingSite } from "@/components/case-study/pits/ExistingSite";
 import { Hero } from "@/components/case-study/pits/Hero";
 import { Overview } from "@/components/case-study/pits/Overview";
 
@@ -13,6 +15,8 @@ export default function PITSPage() {
     <main id="main">
       <Hero />
       <Overview />
+      <Context />
+      <ExistingSite />
     </main>
   );
 }
