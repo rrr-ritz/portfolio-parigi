@@ -18,9 +18,34 @@ const archivoBlack = Archivo_Black({
   display: "swap",
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://parigill.com";
+
 export const metadata: Metadata = {
-  title: "Pari Gill — Product Designer",
-  description: "Portfolio of Pari Gill, a product designer.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Pari Gill — Product Designer",
+    template: "%s",
+  },
+  description:
+    "Portfolio of Pari Gill, a product designer working at the intersection of strategy, research, and craft.",
+  openGraph: {
+    type: "website",
+    siteName: "Pari Gill — Product Designer",
+    title: "Pari Gill — Product Designer",
+    description:
+      "Portfolio of Pari Gill, a product designer working at the intersection of strategy, research, and craft.",
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pari Gill — Product Designer",
+    description:
+      "Portfolio of Pari Gill, a product designer working at the intersection of strategy, research, and craft.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
