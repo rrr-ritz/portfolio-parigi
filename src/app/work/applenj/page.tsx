@@ -4,9 +4,12 @@ import { Context } from "@/components/case-study/applenj/Context";
 import { CreativeDirection } from "@/components/case-study/applenj/CreativeDirection";
 import { DesignDirection } from "@/components/case-study/applenj/DesignDirection";
 import { ExistingSite } from "@/components/case-study/applenj/ExistingSite";
+import { FinalProduct } from "@/components/case-study/applenj/FinalProduct";
 import { Hero } from "@/components/case-study/applenj/Hero";
 import { Overview } from "@/components/case-study/applenj/Overview";
+import { Reflection } from "@/components/case-study/applenj/Reflection";
 import { Structure } from "@/components/case-study/applenj/Structure";
+import { TestingValidation } from "@/components/case-study/applenj/TestingValidation";
 import { TheUser } from "@/components/case-study/applenj/TheUser";
 
 export const metadata: Metadata = {
@@ -27,6 +30,9 @@ export default function AppleNJPage() {
       <CreativeDirection />
       <Structure />
       <DesignDirection />
+      <TestingValidation />
+      <FinalProduct />
+      <Reflection />
     </main>
   );
 }
