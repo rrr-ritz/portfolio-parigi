@@ -23,7 +23,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://parigill.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Pari Gill — Portfolio",
+    default: "pari gill | portfolio, product designer",
     template: "%s",
   },
   description:
