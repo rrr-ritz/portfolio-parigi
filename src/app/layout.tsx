@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Outfit, Archivo_Black } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/layout/LenisProvider";
+import { Navigation } from "@/components/layout/Navigation";
+import { Footer } from "@/components/layout/Footer";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -38,7 +40,13 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <LenisProvider>{children}</LenisProvider>
+        <LenisProvider>
+          <Navigation />
+          <div className="flex min-h-screen flex-col">
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </div>
+        </LenisProvider>
       </body>
     </html>
   );
