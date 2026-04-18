@@ -63,28 +63,28 @@ export function Navigation() {
           aria-label="Pari Gill — home"
           className="group relative inline-flex items-center"
         >
-          <span className="relative inline-block font-display text-2xl leading-none tracking-tight text-espresso md:text-[28px]">
+          <span className="relative inline-block font-display text-[32px] uppercase leading-none tracking-[-0.02em] text-espresso md:text-[44px]">
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute left-[1.75em] top-1/2 -z-0 h-[0.9em] w-[2.15em] -translate-y-1/2 rounded-full bg-orange-bright/70 md:bg-orange/70"
+              className="pointer-events-none absolute left-[0.28em] top-1/2 -z-0 h-[0.7em] w-[0.85em] -translate-y-1/2 rounded-full bg-orange-bright md:bg-orange"
             />
             <span className="relative z-10">Pari Gill</span>
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-10 md:flex">
           {LINKS.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="group relative inline-block py-1 font-serif text-lg text-espresso"
+                className="group relative inline-block py-1 font-display text-[15px] uppercase tracking-[0.12em] text-orange-bright"
                 aria-current={isActive(l.href) ? "page" : undefined}
               >
                 <span>{l.label}</span>
                 <span
                   aria-hidden="true"
                   className={cn(
-                    "pointer-events-none absolute inset-x-0 -bottom-0.5 h-[2px] origin-left bg-espresso transition-transform duration-300",
+                    "pointer-events-none absolute inset-x-0 -bottom-0.5 h-[2px] origin-left bg-orange-bright transition-transform duration-300",
                     isActive(l.href)
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100",
@@ -162,7 +162,7 @@ export function Navigation() {
             >
               <Link
                 href={l.href}
-                className="font-serif text-3xl text-espresso"
+                className="font-display text-3xl uppercase tracking-[0.12em] text-orange-bright"
                 aria-current={isActive(l.href) ? "page" : undefined}
               >
                 {l.label}

@@ -23,8 +23,8 @@ Pari Gill's portfolio site — parigill.com
 
 ## Figma
 - Official Figma MCP server is installed; tools load on session start
-- File: https://www.figma.com/design/in5EBObGnwpPthIKWmpRhu/Portfolio
-- File key: `in5EBObGnwpPthIKWmpRhu`
+- File: https://www.figma.com/design/CCcfvcQTstKIz6v3UAYyZN/Portfolio--Copy- (duplicated to Ritvik's Education-tier team to unblock quota + MCP access; Pari's original is `in5EBObGnwpPthIKWmpRhu`)
+- File key: `CCcfvcQTstKIz6v3UAYyZN`
 - "Final" is the canvas with all production frames
 - ALWAYS screenshot-compare your implementation against Figma
 - Query section-by-section, not entire pages (render timeouts on large frames)

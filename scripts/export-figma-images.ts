@@ -13,7 +13,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 
-const FILE_KEY = "in5EBObGnwpPthIKWmpRhu";
+const FILE_KEY = "CCcfvcQTstKIz6v3UAYyZN";
 const PAT = process.env.FIGMA_PAT;
 const OUT_DIR = join(process.cwd(), "public", "images");
 const BATCH = 10; // ids per /v1/images render call; Figma render is slow on large frames
