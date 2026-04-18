@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Context } from "@/components/case-study/pits/Context";
 import { ExistingSite } from "@/components/case-study/pits/ExistingSite";
+import { FinalTest } from "@/components/case-study/pits/FinalTest";
 import { Hero } from "@/components/case-study/pits/Hero";
 import { LowFidPlanning } from "@/components/case-study/pits/LowFidPlanning";
 import { Overview } from "@/components/case-study/pits/Overview";
@@ -21,6 +22,7 @@ export default function PITSPage() {
       <ExistingSite />
       <LowFidPlanning />
       <Process />
+      <FinalTest />
     </main>
   );
 }
