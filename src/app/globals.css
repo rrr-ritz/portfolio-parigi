@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f7f3f1;
+  --color-cream-50: #fbf9f7;
+  --color-espresso: #382617;
+  --color-espresso-dark: #26190e;
+  --color-espresso-darker: #1e130a;
+  --color-espresso-muted: #4d3d30;
+  --color-copper: #7b3e0a;
+  --color-orange: #d56305;
+  --color-orange-bright: #e36600;
+  --color-green-accent: #53d86a;
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+
+  --color-background: var(--color-cream);
+  --color-foreground: var(--color-espresso);
+  --color-accent: var(--color-orange);
+  --color-accent-strong: var(--color-orange-bright);
+  --color-muted: var(--color-espresso-muted);
+
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo-black), var(--font-outfit), ui-sans-serif, sans-serif;
+  --font-serif: "Times New Roman", Times, "Liberation Serif", Georgia, serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-orange-bright);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-orange);
+  color: var(--color-cream);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
