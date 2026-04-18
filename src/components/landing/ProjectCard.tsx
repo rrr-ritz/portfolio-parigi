@@ -43,12 +43,12 @@ export function ProjectCard({ data }: Props) {
     <Link
       href={`/work/${slug}`}
       aria-label={`${title} case study${locked ? " — locked" : ""}`}
-      className="group relative block rounded-[22px] border border-cream/10 bg-espresso-dark text-cream shadow-[0_12px_32px_-18px_rgba(0,0,0,0.7)] transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out will-change-transform hover:-translate-y-1.5 hover:border-orange-bright/40 hover:bg-[#2e2011] hover:shadow-[0_28px_56px_-22px_rgba(227,102,0,0.25),0_12px_32px_-18px_rgba(0,0,0,0.6)]"
+      className="group relative block rounded-[22px] border border-cream/10 bg-espresso-dark text-cream shadow-[0_12px_32px_-18px_rgba(0,0,0,0.7)] transition-[transform,box-shadow] duration-300 ease-out will-change-transform hover:-translate-y-1 hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.75)]"
     >
       {/* Left bracket — opens right, enclosing the card */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 -left-2 flex w-[14px] items-center justify-start text-cream/70 transition-[transform,color] duration-300 ease-out group-hover:-translate-x-2 group-hover:text-orange-bright md:-left-3 md:w-[22px] lg:-left-4 lg:w-[30px]"
+        className="pointer-events-none absolute inset-y-0 -left-2 flex w-[14px] items-center justify-start text-cream/70 transition-transform duration-300 ease-out group-hover:-translate-x-1.5 md:-left-3 md:w-[22px] lg:-left-4 lg:w-[30px]"
       >
         <Bracket side="left" />
       </span>
@@ -56,7 +56,7 @@ export function ProjectCard({ data }: Props) {
       {/* Right bracket — opens left, enclosing the card */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 -right-2 flex w-[14px] items-center justify-end text-cream/70 transition-[transform,color] duration-300 ease-out group-hover:translate-x-2 group-hover:text-orange-bright md:-right-3 md:w-[22px] lg:-right-4 lg:w-[30px]"
+        className="pointer-events-none absolute inset-y-0 -right-2 flex w-[14px] items-center justify-end text-cream/70 transition-transform duration-300 ease-out group-hover:translate-x-1.5 md:-right-3 md:w-[22px] lg:-right-4 lg:w-[30px]"
       >
         <Bracket side="right" />
       </span>
