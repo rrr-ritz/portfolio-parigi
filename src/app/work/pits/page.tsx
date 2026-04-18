@@ -6,6 +6,7 @@ import { Hero } from "@/components/case-study/pits/Hero";
 import { LowFidPlanning } from "@/components/case-study/pits/LowFidPlanning";
 import { Overview } from "@/components/case-study/pits/Overview";
 import { Process } from "@/components/case-study/pits/Process";
+import { Reflection } from "@/components/case-study/pits/Reflection";
 
 export const metadata: Metadata = {
   title: "Princeton IT Services | Pari Gill — Product Designer",
@@ -23,6 +24,7 @@ export default function PITSPage() {
       <LowFidPlanning />
       <Process />
       <FinalTest />
+      <Reflection />
     </main>
   );
 }

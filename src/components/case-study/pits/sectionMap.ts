@@ -11,4 +11,5 @@ export const PITS_SECTIONS: PitsSection[] = [
   { index: 3, id: "low-fid-planning", label: "Low Fid Planning" },
   { index: 4, id: "process", label: "Process" },
   { index: 5, id: "final-test", label: "The Final Test" },
+  { index: 6, id: "reflection", label: "Reflection" },
 ];
