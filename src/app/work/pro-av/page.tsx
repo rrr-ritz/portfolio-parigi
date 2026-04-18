@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { ComingSoonPlaceholder } from "@/components/case-study/ComingSoonPlaceholder";
+import { cookies } from "next/headers";
+import { LockScreen } from "@/components/ui/LockScreen";
+import { WorkInProgress } from "@/components/case-study/WorkInProgress";
 
 export const metadata: Metadata = {
   title: "Princeton Pro AV | Pari Gill — Product Designer",
@@ -7,6 +9,12 @@ export const metadata: Metadata = {
     "0-to-1 design for Princeton Pro AV — business idea to a 90+ wireframe design system.",
 };
 
-export default function ProAVPage() {
-  return <ComingSoonPlaceholder title="Princeton Pro AV" />;
+export default async function ProAVPage() {
+  const unlocked =
+    (await cookies()).get("portfolio_unlocked")?.value === "true";
+  return unlocked ? (
+    <WorkInProgress />
+  ) : (
+    <LockScreen title="Princeton Pro AV" />
+  );
 }

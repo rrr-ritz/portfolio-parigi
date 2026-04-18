@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { ComingSoonPlaceholder } from "@/components/case-study/ComingSoonPlaceholder";
+import { cookies } from "next/headers";
+import { LockScreen } from "@/components/ui/LockScreen";
+import { WorkInProgress } from "@/components/case-study/WorkInProgress";
 
 export const metadata: Metadata = {
   title: "Hungie | Pari Gill — Product Designer",
@@ -7,6 +9,8 @@ export const metadata: Metadata = {
     "Brand and wireframes for Hungie — an AI-powered healthy food engagement experience.",
 };
 
-export default function HungiePage() {
-  return <ComingSoonPlaceholder title="Hungie" />;
+export default async function HungiePage() {
+  const unlocked =
+    (await cookies()).get("portfolio_unlocked")?.value === "true";
+  return unlocked ? <WorkInProgress /> : <LockScreen title="Hungie" />;
 }
