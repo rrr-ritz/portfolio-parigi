@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Miscellany | Pari Gill — Product Designer",
+  title: "miscellany | Pari Gill",
   description:
     "A collection of Pari's hobbies and interests — creating, nature, friends, pottery, photography, juice, making playlists, exploring, board games.",
 };

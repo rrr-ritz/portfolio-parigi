@@ -4,7 +4,7 @@ import { LockScreen } from "@/components/ui/LockScreen";
 import { WorkInProgress } from "@/components/case-study/WorkInProgress";
 
 export const metadata: Metadata = {
-  title: "Princeton Pro AV | Pari Gill — Product Designer",
+  title: "case study: Princeton Pro AV",
   description:
     "0-to-1 design for Princeton Pro AV — business idea to a 90+ wireframe design system.",
 };

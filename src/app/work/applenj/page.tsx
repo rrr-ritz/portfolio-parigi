@@ -13,7 +13,7 @@ import { TestingValidation } from "@/components/case-study/applenj/TestingValida
 import { TheUser } from "@/components/case-study/applenj/TheUser";
 
 export const metadata: Metadata = {
-  title: "AppleNJ | Pari Gill — Product Designer",
+  title: "case study: AppleNJ",
   description:
     "A ground-up business transformation for AppleNJ — new strategy, brand, and product in 4 weeks as the solo designer.",
 };

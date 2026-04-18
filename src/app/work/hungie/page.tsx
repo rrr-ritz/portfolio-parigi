@@ -4,7 +4,7 @@ import { LockScreen } from "@/components/ui/LockScreen";
 import { WorkInProgress } from "@/components/case-study/WorkInProgress";
 
 export const metadata: Metadata = {
-  title: "Hungie | Pari Gill — Product Designer",
+  title: "case study: Hungie",
   description:
     "Brand and wireframes for Hungie — an AI-powered healthy food engagement experience.",
 };
