@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ComingSoonPlaceholder } from "@/components/case-study/ComingSoonPlaceholder";
+import { Hero } from "@/components/case-study/pits/Hero";
+import { Overview } from "@/components/case-study/pits/Overview";
 
 export const metadata: Metadata = {
   title: "Princeton IT Services | Pari Gill — Product Designer",
@@ -8,5 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default function PITSPage() {
-  return <ComingSoonPlaceholder title="Princeton IT Services" />;
+  return (
+    <main id="main">
+      <Hero />
+      <Overview />
+    </main>
+  );
 }
