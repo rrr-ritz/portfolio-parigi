@@ -97,7 +97,7 @@ export function ProjectsSection({ headingLevel = "h2" }: Props = {}) {
       ref={rootRef}
       id="main"
       aria-label="Selected projects"
-      className="relative bg-espresso-dark py-16 md:py-24 lg:py-28"
+      className="relative bg-espresso-darker py-16 md:py-24 lg:py-28"
     >
       <div className="mx-auto w-full max-w-[1680px] px-4 md:px-8 lg:px-14 xl:px-20">
         <Heading className="mb-12 text-center font-sans text-4xl uppercase tracking-[0.02em] text-cream md:mb-16 md:text-[56px] lg:mb-20 lg:text-[80px] xl:text-[96px]">

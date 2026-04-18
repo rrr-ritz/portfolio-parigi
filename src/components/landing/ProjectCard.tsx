@@ -15,6 +15,26 @@ export type ProjectCardData = {
 
 type Props = { data: ProjectCardData };
 
+function Bracket({ side }: { side: "left" | "right" }) {
+  return (
+    <svg
+      viewBox="0 0 39 395"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      preserveAspectRatio="none"
+      className={`h-[88%] w-auto ${side === "right" ? "-scale-x-100" : ""}`}
+    >
+      <path
+        d="M23.8857 1.18543C23.8857 0.862739 17.8456 0.696505 8.69406 3.0217C5.47758 3.83893 5.58252 9.99728 4.97852 27.6544C4.37452 45.3115 3.16651 75.8344 2.22077 136.734C1.27503 197.633 0.628157 287.984 1.23795 334.528C1.84774 381.073 3.73379 381.073 9.46582 382.884C15.1978 384.695 24.7187 388.318 30.0287 390.505C35.3386 392.693 36.1491 393.335 37.9998 393.998"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function ProjectCard({ data }: Props) {
   const { slug, title, description, badge, tags, image, imageAlt, imageClass, locked } =
     data;
@@ -23,20 +43,22 @@ export function ProjectCard({ data }: Props) {
     <Link
       href={`/work/${slug}`}
       aria-label={`${title} case study${locked ? " — locked" : ""}`}
-      className="group relative block overflow-hidden rounded-[22px] bg-espresso-dark text-cream transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_24px_40px_-20px_rgba(0,0,0,0.4)]"
+      className="group relative block rounded-[22px] border border-cream/10 bg-espresso-dark text-cream shadow-[0_12px_32px_-18px_rgba(0,0,0,0.7)] transition-[transform,box-shadow,border-color,background-color] duration-300 ease-out will-change-transform hover:-translate-y-1.5 hover:border-orange-bright/40 hover:bg-[#2e2011] hover:shadow-[0_28px_56px_-22px_rgba(227,102,0,0.25),0_12px_32px_-18px_rgba(0,0,0,0.6)]"
     >
-      {/* Hand-drawn bracket on the left edge (Figma Vector 9, mirrored) */}
+      {/* Left bracket — opens right, enclosing the card */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 flex w-[3%] min-w-[18px] max-w-[28px] items-center justify-center"
+        className="pointer-events-none absolute inset-y-0 -left-2 flex w-[14px] items-center justify-start text-cream/70 transition-[transform,color] duration-300 ease-out group-hover:-translate-x-2 group-hover:text-orange-bright md:-left-3 md:w-[22px] lg:-left-4 lg:w-[30px]"
       >
-        <Image
-          src="/images/landing/card-arrow.svg"
-          alt=""
-          width={39}
-          height={395}
-          className="h-[90%] w-auto -scale-x-100"
-        />
+        <Bracket side="left" />
+      </span>
+
+      {/* Right bracket — opens left, enclosing the card */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 -right-2 flex w-[14px] items-center justify-end text-cream/70 transition-[transform,color] duration-300 ease-out group-hover:translate-x-2 group-hover:text-orange-bright md:-right-3 md:w-[22px] lg:-right-4 lg:w-[30px]"
+      >
+        <Bracket side="right" />
       </span>
 
       <div className="relative grid grid-cols-1 items-center gap-8 pl-10 pr-6 pb-10 pt-9 md:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] md:gap-14 md:pl-20 md:pr-12 md:pt-12 md:pb-12 lg:gap-16 lg:pl-[7%] lg:pr-[6%] lg:pt-[56px] lg:pb-[56px] xl:pt-[72px] xl:pb-[72px]">
