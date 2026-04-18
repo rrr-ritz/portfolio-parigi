@@ -1,4 +1,4 @@
-import { SectionRail } from "./SectionRail";
+import { SectionAnchor } from "./SectionRail";
 
 export function Overview() {
   return (
@@ -7,11 +7,9 @@ export function Overview() {
       aria-label="Overview"
       className="relative bg-cream text-espresso-darker"
     >
-      <div className="mx-auto w-full max-w-[1514px] px-6 py-16 md:px-12 md:py-24 lg:px-[57px] lg:pt-[84px] lg:pb-[120px]">
+      <div className="mx-auto w-full max-w-[1514px] px-6 py-16 md:px-12 md:py-24 lg:px-[57px] lg:pt-[132px] lg:pb-[120px]">
         <div className="flex flex-col gap-14 lg:flex-row lg:items-start lg:gap-0">
-          <div className="flex-none lg:w-[122px]">
-            <SectionRail variant="sticky" />
-          </div>
+          <SectionAnchor index={0} />
 
           <div className="flex min-w-0 flex-col gap-10 lg:w-[371px] lg:flex-none lg:pt-[117px]">
             <h2 className="font-sans text-[40px] leading-[1.26] md:text-[52px] lg:text-[64px]">
